@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <title>by nikusha❤️</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffdee9, #b5fffc);
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        margin-top: 20px;
+        color: #cc0066;
+        font-size: 32px;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-top: 30px;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.8s ease;
+      }
+
+      .slide img {
+        width: 300px;
+        border-radius: 20px;
+        margin-top: 30px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .slide.active {
+        left: 0;
+        opacity: 1;
+      }
+
+      .slide.exit {
+        left: -100%;
+        opacity: 0;
+      }
+
+      button {
+        margin-top: 20px;
+        background: #ff6699;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #e60073;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🌹🫶🫶🌹</h1>
+
+    <div class="container">
+      <!-- პირველი ფოტო -->
+      <div class="slide active" id="slide1">
+        <img src="pics/nika.jpg" alt="Photo 1" />
+        <p>Hey 🐾</p>
+      </div>
+
+      <!-- მეორე ფოტო -->
+      <div class="slide" id="slide2">
+        <img src="pics/nika1.jpg" alt="Photo 2" />
+        <p>I love you 💖</p>
+      </div>
+    </div>
+
+    <button onclick="nextSlide()">დააჭირე 🌸</button>
+
+    <script>
+      let current = 1;
+
+      function nextSlide() {
+        let slide1 = document.getElementById("slide1");
+        let slide2 = document.getElementById("slide2");
+
+        if (current === 1) {
+          slide1.classList.remove("active");
+          slide1.classList.add("exit");
+          slide2.classList.add("active");
+          current = 2;
+        } else {
+          slide2.classList.remove("active");
+          slide2.classList.add("exit");
+          slide1.classList.add("active");
+          current = 1;
+
+          // Reset exit class after animation
+          setTimeout(() => {
+            slide1.classList.remove("exit");
+            slide2.classList.remove("exit");
+          }, 800);
+        }
+      }
+    </script>
+  </body>
+</html>
